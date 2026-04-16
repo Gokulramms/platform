@@ -17,6 +17,7 @@ interface Customer {
   address: string;
   connectionType: "INTERNET" | "CABLE";
   boxNumber: number;
+  hardwareId: string | null;
   planAmount: number;
   payments: Array<{
     id: string;
