@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background-color: #070920;
+  color: #f6f7fb;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0f24;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #343a6e;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4f5dff;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(20, 24, 52, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(78, 88, 190, 0.2);
+}
+
+.glass-light {
+  background: rgba(30, 34, 80, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(78, 88, 190, 0.15);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #7488ff 0%, #4f5dff 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effects */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(79, 93, 255, 0.3), 0 0 40px rgba(79, 93, 255, 0.1);
+}
+
+.glow-green {
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+}
+
+.glow-red {
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+}
+
+/* Input styles */
+.input-dark {
+  @apply bg-dark-800 border border-dark-600 rounded-lg px-3 py-2 text-white text-sm
+    focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
+    placeholder-dark-400 transition-all duration-200;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-brand-600 hover:bg-brand-500 text-white font-medium px-4 py-2 rounded-lg
+    transition-all duration-200 flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-dark-700 hover:bg-dark-600 text-white font-medium px-4 py-2 rounded-lg
+    transition-all duration-200 flex items-center gap-2 border border-dark-600;
+}
+
+.btn-danger {
+  @apply bg-red-600 hover:bg-red-500 text-white font-medium px-4 py-2 rounded-lg
+    transition-all duration-200 flex items-center gap-2;
+}
+
+/* Box states */
+.box-empty {
+  @apply bg-dark-800 border-2 border-dashed border-dark-600 hover:border-brand-500
+    hover:bg-dark-700 cursor-pointer transition-all duration-200;
+}
+
+.box-paid {
+  @apply bg-green-950 border-2 border-green-700 hover:border-green-500
+    cursor-pointer transition-all duration-200;
+}
+
+.box-unpaid {
+  @apply bg-red-950 border-2 border-red-700 hover:border-red-500
+    cursor-pointer transition-all duration-200;
+}

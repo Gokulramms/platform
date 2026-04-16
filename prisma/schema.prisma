@@ -1,0 +1,61 @@
+// This is your Prisma schema file
+// Learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Customer {
+  id              String         @id @default(cuid())
+  name            String
+  phone           String
+  address         String
+  connectionType  ConnectionType
+  boxNumber       Int
+  hardwareId      String?
+  planAmount      Float
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  payments        Payment[]
+
+  @@unique([connectionType, boxNumber])
+}
+
+model Payment {
+  id          String        @id @default(cuid())
+  customerId  String
+  customer    Customer      @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  month       Int           // 1-12
+  year        Int
+  status      PaymentStatus @default(UNPAID)
+  amountPaid  Float         @default(0)
+  balance     Float         @default(0)
+  paymentDate DateTime?
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@unique([customerId, month, year])
+}
+
+enum ConnectionType {
+  INTERNET
+  CABLE
+}
+
+enum PaymentStatus {
+  PAID
+  PARTIAL
+  UNPAID
+}
