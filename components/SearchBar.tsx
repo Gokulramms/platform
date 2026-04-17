@@ -11,7 +11,7 @@ interface SearchBarProps {
 export function SearchBar({ value, onChange, placeholder = "Search by name or box number..." }: SearchBarProps) {
   return (
     <div className="relative flex-1">
-      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-400 pointer-events-none" />
+      <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-600 pointer-events-none" />
       <input
         id="search-input"
         type="text"
@@ -23,7 +23,7 @@ export function SearchBar({ value, onChange, placeholder = "Search by name or bo
       {value && (
         <button
           onClick={() => onChange("")}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-dark-400 hover:text-white transition-colors"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-600 hover:text-slate-900 transition-colors"
         >
           <X className="w-4 h-4" />
         </button>

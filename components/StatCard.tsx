@@ -15,8 +15,8 @@ const colorMap = {
   brand: {
     bg: "bg-brand-600/15",
     border: "border-brand-600/30",
-    icon: "bg-brand-600/20 text-brand-400",
-    value: "text-brand-300",
+    icon: "bg-brand-600/20 text-brand-600",
+    value: "text-brand-700",
   },
   blue: {
     bg: "bg-blue-600/15",
@@ -33,14 +33,14 @@ const colorMap = {
   green: {
     bg: "bg-green-600/15",
     border: "border-green-600/30",
-    icon: "bg-green-600/20 text-green-400",
-    value: "text-green-300",
+    icon: "bg-green-600/20 text-green-600",
+    value: "text-green-600",
   },
   red: {
     bg: "bg-red-600/15",
     border: "border-red-600/30",
-    icon: "bg-red-600/20 text-red-400",
-    value: "text-red-300",
+    icon: "bg-red-600/20 text-red-600",
+    value: "text-red-600",
   },
 };
 
@@ -62,14 +62,14 @@ export function StatCard({ title, value, subtitle, icon, color, loading, href }:
       </div>
       {loading ? (
         <div className="space-y-2">
-          <div className="h-8 w-24 bg-dark-700 rounded animate-pulse" />
-          <div className="h-4 w-32 bg-dark-700 rounded animate-pulse" />
+          <div className="h-8 w-24 bg-slate-100 rounded animate-pulse" />
+          <div className="h-4 w-32 bg-slate-100 rounded animate-pulse" />
         </div>
       ) : (
         <>
           <p className={cn("text-3xl font-bold", colors.value)}>{value}</p>
-          {subtitle && <p className="text-dark-400 text-xs mt-0.5">{subtitle}</p>}
-          <p className="text-dark-300 text-sm mt-1">{title}</p>
+          {subtitle && <p className="text-slate-600 text-xs mt-0.5">{subtitle}</p>}
+          <p className="text-slate-700 text-sm mt-1">{title}</p>
         </>
       )}
     </div>

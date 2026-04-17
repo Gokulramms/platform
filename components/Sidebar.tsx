@@ -23,14 +23,14 @@ export function Sidebar() {
   const SidebarContent = () => (
     <div className="flex flex-col h-full">
       {/* Logo */}
-      <div className="p-5 border-b border-dark-800">
+      <div className="p-5 border-b border-slate-200">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center flex-shrink-0">
-            <Zap className="w-5 h-5 text-white" />
+            <Zap className="w-5 h-5 text-slate-900" />
           </div>
           <div className="min-w-0">
-            <p className="text-xs font-bold text-white leading-tight truncate">ASHA CABLE</p>
-            <p className="text-[10px] text-brand-400 truncate">& ANITHA FIBERNET</p>
+            <p className="text-xs font-bold text-slate-900 leading-tight truncate">ASHA CABLE</p>
+            <p className="text-[10px] text-brand-600 truncate">& ANITHA SRIDHAR FIBERNET</p>
           </div>
         </div>
       </div>
@@ -47,11 +47,11 @@ export function Sidebar() {
               className={cn(
                 "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200",
                 isActive
-                  ? "bg-brand-600/20 text-brand-300 border border-brand-600/30"
-                  : "text-dark-300 hover:bg-dark-800 hover:text-white"
+                  ? "bg-brand-600/20 text-brand-700 border border-brand-600/30"
+                  : "text-slate-700 hover:bg-white hover:text-slate-900"
               )}
             >
-              <item.icon className={cn("w-4 h-4 flex-shrink-0", isActive ? "text-brand-400" : "")} />
+              <item.icon className={cn("w-4 h-4 flex-shrink-0", isActive ? "text-brand-600" : "")} />
               {item.label}
               {isActive && (
                 <div className="ml-auto w-1.5 h-1.5 rounded-full bg-brand-400" />
@@ -62,10 +62,10 @@ export function Sidebar() {
       </nav>
 
       {/* Logout */}
-      <div className="p-3 border-t border-dark-800">
+      <div className="p-3 border-t border-slate-200">
         <button
           onClick={() => signOut({ callbackUrl: "/login" })}
-          className="flex items-center gap-3 px-3 py-2.5 w-full rounded-xl text-sm font-medium text-dark-300 hover:bg-red-900/20 hover:text-red-400 transition-all duration-200"
+          className="flex items-center gap-3 px-3 py-2.5 w-full rounded-xl text-sm font-medium text-slate-700 hover:bg-red-900/20 hover:text-red-600 transition-all duration-200"
         >
           <LogOut className="w-4 h-4 flex-shrink-0" />
           Sign Out
@@ -77,21 +77,21 @@ export function Sidebar() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 glass border-r border-dark-800 z-40">
+      <aside className="hidden lg:flex flex-col w-64 h-screen fixed left-0 top-0 glass border-r border-slate-200 z-40">
         <SidebarContent />
       </aside>
 
       {/* Mobile top bar */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 glass border-b border-dark-800 px-4 py-3 flex items-center justify-between">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 glass border-b border-slate-200 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-brand-500 to-purple-600 flex items-center justify-center">
-            <Zap className="w-4 h-4 text-white" />
+            <Zap className="w-4 h-4 text-slate-900" />
           </div>
-          <span className="text-sm font-bold text-white">ASHA CABLE</span>
+          <span className="text-sm font-bold text-slate-900">ASHA CABLE</span>
         </div>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="p-1.5 rounded-lg bg-dark-800 text-white"
+          className="p-1.5 rounded-lg bg-white text-slate-900"
         >
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -113,7 +113,7 @@ export function Sidebar() {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ type: "tween", duration: 0.25 }}
-              className="lg:hidden flex flex-col w-64 h-screen fixed left-0 top-0 bg-dark-900 border-r border-dark-800 z-50"
+              className="lg:hidden flex flex-col w-64 h-screen fixed left-0 top-0 bg-white border-r border-slate-200 z-50"
             >
               <SidebarContent />
             </motion.aside>

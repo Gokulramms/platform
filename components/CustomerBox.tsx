@@ -25,10 +25,10 @@ export function CustomerBox({ boxNumber, customer, onClick }: CustomerBoxProps) 
         onClick={onClick}
         className="box-empty rounded-xl p-3 flex flex-col items-center justify-center gap-1 min-h-[80px] group"
       >
-        <span className="text-xs font-bold text-dark-500 group-hover:text-brand-400 transition-colors">
+        <span className="text-xs font-bold text-slate-500 group-hover:text-brand-600 transition-colors">
           {boxNumber}
         </span>
-        <Plus className="w-4 h-4 text-dark-600 group-hover:text-brand-400 transition-colors" />
+        <Plus className="w-4 h-4 text-slate-400 group-hover:text-brand-600 transition-colors" />
       </motion.button>
     );
   }
@@ -44,7 +44,7 @@ export function CustomerBox({ boxNumber, customer, onClick }: CustomerBoxProps) 
       onClick={onClick}
       className={cn(
         "rounded-xl p-3 flex flex-col items-start gap-1 min-h-[80px] relative overflow-hidden",
-        isPaid ? "box-paid" : isPartial ? "bg-amber-950/40 border border-amber-900/60 hover:border-amber-600 hover:bg-amber-900/40" : "box-unpaid"
+        isPaid ? "box-paid" : isPartial ? "bg-amber-50 border border-amber-200 hover:border-amber-400 hover:bg-amber-100" : "box-unpaid"
       )}
     >
       {/* Glow dot */}
@@ -68,13 +68,13 @@ export function CustomerBox({ boxNumber, customer, onClick }: CustomerBoxProps) 
       )}>
         <User className={cn(
           "w-3 h-3",
-          isPaid ? "text-green-300" : isPartial ? "text-amber-300" : "text-red-300"
+          isPaid ? "text-green-600" : isPartial ? "text-amber-600" : "text-red-600"
         )} />
       </div>
 
       <span className={cn(
         "text-[10px] font-medium leading-tight text-left w-full truncate",
-        isPaid ? "text-green-200" : isPartial ? "text-amber-200" : "text-red-200"
+        isPaid ? "text-green-700" : isPartial ? "text-amber-700" : "text-red-700"
       )}>
         {customer.name.split(" ")[0]}
       </span>

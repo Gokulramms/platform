@@ -66,42 +66,42 @@ function PayDialog({
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        className="bg-dark-900 border border-dark-700 rounded-2xl p-6 w-full max-w-sm shadow-2xl"
+        className="bg-white border border-slate-300 rounded-2xl p-6 w-full max-w-sm shadow-2xl"
       >
-        <h3 className="text-base font-bold text-white mb-1">Record Payment</h3>
-        <p className="text-xs text-dark-400 mb-5">
-          Marking <span className="text-white font-semibold">{selectedCount}</span> month{selectedCount !== 1 ? "s" : ""}
+        <h3 className="text-base font-bold text-slate-900 mb-1">Record Payment</h3>
+        <p className="text-xs text-slate-600 mb-5">
+          Marking <span className="text-slate-900 font-semibold">{selectedCount}</span> month{selectedCount !== 1 ? "s" : ""}
         </p>
 
         <div className="flex gap-3 mb-4">
           <div className="flex-1">
-            <label className="block text-xs font-semibold text-dark-400 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">
               Amount Paid (₹)
             </label>
             <div className="relative">
-              <IndianRupee className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+              <IndianRupee className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
               <input
                 autoFocus
                 type="number"
                 min={0}
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="w-full bg-dark-800 border border-dark-700 focus:border-brand-500 rounded-xl px-4 py-2.5 pl-9 text-white text-sm outline-none transition-all"
+                className="w-full bg-white border border-slate-300 focus:border-brand-500 rounded-xl px-4 py-2.5 pl-9 text-slate-900 text-sm outline-none transition-all"
               />
             </div>
           </div>
           <div className="flex-1">
-            <label className="block text-xs font-semibold text-dark-400 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">
               Balance Due (₹)
             </label>
             <div className="relative">
-              <IndianRupee className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+              <IndianRupee className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
               <input
                 type="number"
                 min={0}
                 value={balance}
                 onChange={(e) => setBalance(e.target.value)}
-                className="w-full bg-dark-800 border border-dark-700 focus:border-brand-500 rounded-xl px-4 py-2.5 pl-9 text-white text-sm outline-none transition-all"
+                className="w-full bg-white border border-slate-300 focus:border-brand-500 rounded-xl px-4 py-2.5 pl-9 text-slate-900 text-sm outline-none transition-all"
               />
             </div>
           </div>
@@ -109,10 +109,10 @@ function PayDialog({
 
         <div className={cn(
           "text-xs px-3 py-2 rounded-lg mb-5 flex items-center gap-2",
-          isPartial ? "bg-amber-900/30 text-amber-300 border border-amber-800/40" :
-          isPaid ? "bg-green-900/30 text-green-300 border border-green-800/40" :
-          isUnpaid ? "bg-red-900/30 text-red-300 border border-red-800/40" :
-          "bg-dark-800 text-dark-400"
+          isPartial ? "bg-amber-900/30 text-amber-600 border border-amber-800/40" :
+          isPaid ? "bg-green-900/30 text-green-600 border border-green-800/40" :
+          isUnpaid ? "bg-red-900/30 text-red-600 border border-red-800/40" :
+          "bg-white text-slate-600"
         )}>
           {isPartial && <AlertCircle className="w-3.5 h-3.5 flex-shrink-0" />}
           {isPaid && <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" />}
@@ -123,12 +123,12 @@ function PayDialog({
         </div>
 
         <div className="flex gap-3">
-          <button onClick={onCancel} className="flex-1 py-2.5 rounded-xl bg-dark-800 border border-dark-700 text-dark-200 text-sm font-medium hover:bg-dark-700 transition-all">
+          <button onClick={onCancel} className="flex-1 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-800 text-sm font-medium hover:bg-slate-100 transition-all">
             Cancel
           </button>
           <button
             onClick={() => onConfirm(parsedAmt, parsedBal)}
-            className="flex-1 py-2.5 rounded-xl bg-green-700 hover:bg-green-600 text-white text-sm font-bold transition-all"
+            className="flex-1 py-2.5 rounded-xl bg-green-700 hover:bg-green-600 text-slate-900 text-sm font-bold transition-all"
           >
             Confirm
           </button>
@@ -243,18 +243,18 @@ export function PaymentPanel({ customer, onClose, onEdit, onPaymentUpdate }: pro
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 60 }}
           transition={{ duration: 0.25 }}
-          className="bg-dark-900 border border-dark-700 rounded-t-2xl sm:rounded-2xl w-full sm:max-w-2xl max-h-[92vh] overflow-hidden flex flex-col shadow-2xl"
+          className="bg-white border border-slate-300 rounded-t-2xl sm:rounded-2xl w-full sm:max-w-2xl max-h-[92vh] overflow-hidden flex flex-col shadow-2xl"
         >
           {/* ── Header ── */}
-          <div className="px-5 py-4 border-b border-dark-800 flex-shrink-0">
+          <div className="px-5 py-4 border-b border-slate-200 flex-shrink-0">
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center gap-3">
                 <div className="w-11 h-11 rounded-xl bg-brand-600/20 flex items-center justify-center">
-                  <User className="w-5 h-5 text-brand-400" />
+                  <User className="w-5 h-5 text-brand-600" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-white leading-tight">{data.name}</h2>
-                  <p className="text-dark-500 text-xs">
+                  <h2 className="text-lg font-bold text-slate-900 leading-tight">{data.name}</h2>
+                  <p className="text-slate-500 text-xs">
                     Box #{data.boxNumber}
                     {data.hardwareId && ` (${data.hardwareId})`}
                     {" "}· {data.connectionType}
@@ -265,16 +265,16 @@ export function PaymentPanel({ customer, onClose, onEdit, onPaymentUpdate }: pro
                 <a
                   href={`/api/download?customerId=${data.id}`}
                   download
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-700 border border-dark-700 text-dark-300 hover:text-white text-xs font-medium transition-all"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 hover:text-slate-900 text-xs font-medium transition-all"
                 >
                   <Download className="w-3.5 h-3.5" />
                   Export CSV
                 </a>
-                <button onClick={onEdit} className="w-8 h-8 rounded-lg bg-dark-800 hover:bg-dark-700 flex items-center justify-center transition-colors">
-                  <Edit2 className="w-4 h-4 text-dark-400" />
+                <button onClick={onEdit} className="w-8 h-8 rounded-lg bg-white hover:bg-slate-100 flex items-center justify-center transition-colors">
+                  <Edit2 className="w-4 h-4 text-slate-600" />
                 </button>
-                <button onClick={onClose} className="w-8 h-8 rounded-lg bg-dark-800 hover:bg-dark-700 flex items-center justify-center transition-colors">
-                  <X className="w-4 h-4 text-dark-400" />
+                <button onClick={onClose} className="w-8 h-8 rounded-lg bg-white hover:bg-slate-100 flex items-center justify-center transition-colors">
+                  <X className="w-4 h-4 text-slate-600" />
                 </button>
               </div>
             </div>
@@ -286,9 +286,9 @@ export function PaymentPanel({ customer, onClose, onEdit, onPaymentUpdate }: pro
                 { icon: <MapPin className="w-3 h-3" />, val: data.address },
                 { icon: <Hash className="w-3 h-3" />, val: `Box #${data.boxNumber}` },
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 bg-dark-800 rounded-lg px-3 py-2">
-                  <span className="text-dark-500 flex-shrink-0">{item.icon}</span>
-                  <span className="text-white text-xs truncate">{item.val}</span>
+                <div key={i} className="flex items-center gap-2 bg-white rounded-lg px-3 py-2">
+                  <span className="text-slate-500 flex-shrink-0">{item.icon}</span>
+                  <span className="text-slate-900 text-xs truncate">{item.val}</span>
                 </div>
               ))}
             </div>
@@ -300,8 +300,8 @@ export function PaymentPanel({ customer, onClose, onEdit, onPaymentUpdate }: pro
               {/* Year selector + stats */}
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-brand-400" />
-                  <span className="font-semibold text-white text-sm">Payment History</span>
+                  <Calendar className="w-4 h-4 text-brand-600" />
+                  <span className="font-semibold text-slate-900 text-sm">Payment History</span>
                 </div>
                 <div className="flex gap-1.5">
                   {years.map((y) => (
@@ -311,8 +311,8 @@ export function PaymentPanel({ customer, onClose, onEdit, onPaymentUpdate }: pro
                       className={cn(
                         "px-3 py-1 rounded-lg text-xs font-semibold transition-all",
                         selectedYear === y
-                          ? "bg-brand-600/30 text-brand-300 border border-brand-600/40"
-                          : "bg-dark-800 text-dark-400 border border-dark-700 hover:border-dark-500"
+                          ? "bg-brand-600/30 text-brand-700 border border-brand-600/40"
+                          : "bg-white text-slate-600 border border-slate-300 hover:border-slate-400"
                       )}
                     >{y}</button>
                   ))}
@@ -322,14 +322,14 @@ export function PaymentPanel({ customer, onClose, onEdit, onPaymentUpdate }: pro
               {/* Stats */}
               <div className="grid grid-cols-4 gap-2 mb-4">
                 {[
-                  { val: paid, label: "Paid", bg: "bg-green-950/60 border-green-900/60", text: "text-green-400" },
-                  { val: partial, label: "Partial", bg: "bg-amber-950/60 border-amber-900/60", text: "text-amber-400" },
-                  { val: unpaid, label: "Unpaid", bg: "bg-red-950/60 border-red-900/60", text: "text-red-400" },
-                  { val: `₹${totalBalance.toFixed(0)}`, label: "Balance", bg: "bg-dark-800 border-dark-700", text: "text-white" },
+                  { val: paid, label: "Paid", bg: "bg-green-50 border-green-200", text: "text-green-600" },
+                  { val: partial, label: "Partial", bg: "bg-amber-50 border-amber-200", text: "text-amber-600" },
+                  { val: unpaid, label: "Unpaid", bg: "bg-red-50 border-red-200", text: "text-red-600" },
+                  { val: `₹${totalBalance.toFixed(0)}`, label: "Balance", bg: "bg-white border-slate-300", text: "text-slate-900" },
                 ].map((s) => (
                   <div key={s.label} className={cn("border rounded-xl p-2.5 text-center", s.bg)}>
                     <p className={cn("text-lg font-black", s.text)}>{s.val}</p>
-                    <p className="text-[10px] text-dark-500">{s.label}</p>
+                    <p className="text-[10px] text-slate-500">{s.label}</p>
                   </div>
                 ))}
               </div>
@@ -338,19 +338,19 @@ export function PaymentPanel({ customer, onClose, onEdit, onPaymentUpdate }: pro
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <button
                   onClick={allSelected ? clearSelection : selectAll}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-800 border border-dark-700 hover:border-dark-500 text-dark-300 hover:text-white text-xs font-medium transition-all"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-300 hover:border-slate-400 text-slate-700 hover:text-slate-900 text-xs font-medium transition-all"
                 >
                   {allSelected ? <CheckSquare className="w-3.5 h-3.5" /> : someSelected ? <MinusSquare className="w-3.5 h-3.5" /> : <Square className="w-3.5 h-3.5" />}
                   All
                 </button>
-                <button onClick={selectUnpaid} className="px-3 py-1.5 rounded-lg bg-dark-800 border border-dark-700 hover:border-red-700 text-dark-300 hover:text-red-300 text-xs font-medium transition-all">
+                <button onClick={selectUnpaid} className="px-3 py-1.5 rounded-lg bg-white border border-slate-300 hover:border-red-700 text-slate-700 hover:text-red-600 text-xs font-medium transition-all">
                   Select Unpaid
                 </button>
-                <button onClick={selectPaid} className="px-3 py-1.5 rounded-lg bg-dark-800 border border-dark-700 hover:border-green-700 text-dark-300 hover:text-green-300 text-xs font-medium transition-all">
+                <button onClick={selectPaid} className="px-3 py-1.5 rounded-lg bg-white border border-slate-300 hover:border-green-700 text-slate-700 hover:text-green-600 text-xs font-medium transition-all">
                   Select Paid
                 </button>
                 {selectedIds.size > 0 && (
-                  <button onClick={clearSelection} className="px-3 py-1.5 rounded-lg bg-dark-800 border border-dark-700 text-dark-400 text-xs transition-all hover:text-white">
+                  <button onClick={clearSelection} className="px-3 py-1.5 rounded-lg bg-white border border-slate-300 text-slate-600 text-xs transition-all hover:text-slate-900">
                     Clear ({selectedIds.size})
                   </button>
                 )}
@@ -363,15 +363,15 @@ export function PaymentPanel({ customer, onClose, onEdit, onPaymentUpdate }: pro
                     initial={{ opacity: 0, y: -8 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -8 }}
-                    className="flex gap-2 mb-4 p-3 rounded-xl bg-dark-800 border border-dark-700"
+                    className="flex gap-2 mb-4 p-3 rounded-xl bg-white border border-slate-300"
                   >
-                    <span className="text-xs text-dark-400 mr-1 self-center">
+                    <span className="text-xs text-slate-600 mr-1 self-center">
                       {selectedIds.size} selected:
                     </span>
                     <button
                       onClick={handleMarkPaid}
                       disabled={bulkMutation.isPending}
-                      className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-green-700/30 hover:bg-green-700/50 border border-green-700/40 text-green-300 text-xs font-bold transition-all disabled:opacity-50"
+                      className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-green-700/30 hover:bg-green-700/50 border border-green-700/40 text-green-600 text-xs font-bold transition-all disabled:opacity-50"
                     >
                       <CheckCircle className="w-3.5 h-3.5" />
                       Mark Paid
@@ -379,7 +379,7 @@ export function PaymentPanel({ customer, onClose, onEdit, onPaymentUpdate }: pro
                     <button
                       onClick={handleMarkUnpaid}
                       disabled={bulkMutation.isPending}
-                      className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-red-700/30 hover:bg-red-700/50 border border-red-700/40 text-red-300 text-xs font-bold transition-all disabled:opacity-50"
+                      className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-red-700/30 hover:bg-red-700/50 border border-red-700/40 text-red-600 text-xs font-bold transition-all disabled:opacity-50"
                     >
                       <XCircle className="w-3.5 h-3.5" />
                       Mark Unpaid
@@ -392,7 +392,7 @@ export function PaymentPanel({ customer, onClose, onEdit, onPaymentUpdate }: pro
               {isLoading ? (
                 <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
                   {[...Array(12)].map((_, i) => (
-                    <div key={i} className="h-20 rounded-xl bg-dark-800 animate-pulse" />
+                    <div key={i} className="h-20 rounded-xl bg-white animate-pulse" />
                   ))}
                 </div>
               ) : (
@@ -414,38 +414,38 @@ export function PaymentPanel({ customer, onClose, onEdit, onPaymentUpdate }: pro
                         onClick={() => toggleSelect(payment.id)}
                         className={cn(
                           "rounded-xl p-2.5 text-left border transition-all duration-150 relative cursor-pointer",
-                          isPaid && !isSelected && "bg-green-950/60 border-green-900/50 hover:border-green-600",
-                          isPartial && !isSelected && "bg-amber-950/60 border-amber-900/50 hover:border-amber-500",
-                          isUnpaid && !isSelected && "bg-red-950/50 border-red-900/40 hover:border-red-600",
-                          isSelected && "ring-2 ring-brand-500 ring-offset-1 ring-offset-dark-900 border-brand-500/50 bg-brand-950/30",
+                          isPaid && !isSelected && "bg-green-50 border-green-200 hover:border-green-400",
+                          isPartial && !isSelected && "bg-amber-50 border-amber-200 hover:border-amber-400",
+                          isUnpaid && !isSelected && "bg-red-50 border-red-200 hover:border-red-400",
+                          isSelected && "ring-2 ring-brand-500 ring-offset-1 ring-offset-dark-900 border-brand-500/50 bg-brand-50",
                           isCurrentMonth && !isSelected && "ring-1 ring-brand-600/60"
                         )}
                       >
                         {/* Selected checkbox */}
                         <div className={cn(
                           "absolute top-2 right-2 w-4 h-4 rounded flex items-center justify-center flex-shrink-0 transition-all",
-                          isSelected ? "bg-brand-500" : "bg-dark-700 border border-dark-600"
+                          isSelected ? "bg-brand-500" : "bg-slate-100 border border-slate-300"
                         )}>
-                          {isSelected && <CheckCircle className="w-3 h-3 text-white" />}
+                          {isSelected && <CheckCircle className="w-3 h-3 text-slate-900" />}
                         </div>
 
                         {/* Status icon */}
                         <div className="mb-1.5">
-                          {isPaid && <CheckCircle className="w-3.5 h-3.5 text-green-400" />}
-                          {isPartial && <AlertCircle className="w-3.5 h-3.5 text-amber-400" />}
-                          {isUnpaid && <XCircle className="w-3.5 h-3.5 text-red-400" />}
+                          {isPaid && <CheckCircle className="w-3.5 h-3.5 text-green-600" />}
+                          {isPartial && <AlertCircle className="w-3.5 h-3.5 text-amber-600" />}
+                          {isUnpaid && <XCircle className="w-3.5 h-3.5 text-red-600" />}
                         </div>
 
                         {/* Month name */}
-                        <p className="text-xs font-bold text-white leading-tight">
+                        <p className="text-xs font-bold text-slate-900 leading-tight">
                           {MONTHS_SHORT[payment.month - 1]}
-                          {isCurrentMonth && <span className="ml-1 text-[9px] text-brand-400">●</span>}
+                          {isCurrentMonth && <span className="ml-1 text-[9px] text-brand-600">●</span>}
                         </p>
 
                         {/* Status label */}
                         <p className={cn(
                           "text-[9px] font-semibold mt-0.5",
-                          isPaid ? "text-green-400" : isPartial ? "text-amber-400" : "text-red-400"
+                          isPaid ? "text-green-600" : isPartial ? "text-amber-600" : "text-red-600"
                         )}>
                           {isPaid ? "PAID" : isPartial ? "PARTIAL" : "UNPAID"}
                         </p>
@@ -456,8 +456,8 @@ export function PaymentPanel({ customer, onClose, onEdit, onPaymentUpdate }: pro
                         )}
                         {isPartial && (
                           <div>
-                            <p className="text-[9px] text-amber-400">₹{payment.amountPaid} paid</p>
-                            <p className="text-[9px] text-red-400">₹{balance} due</p>
+                            <p className="text-[9px] text-amber-600">₹{payment.amountPaid} paid</p>
+                            <p className="text-[9px] text-red-600">₹{balance} due</p>
                           </div>
                         )}
                         {isUnpaid && payment.balance > 0 && (
@@ -477,7 +477,7 @@ export function PaymentPanel({ customer, onClose, onEdit, onPaymentUpdate }: pro
               )}
 
               {filteredPayments.length === 0 && !isLoading && (
-                <p className="text-center text-dark-400 text-sm py-10">No records for {selectedYear}</p>
+                <p className="text-center text-slate-600 text-sm py-10">No records for {selectedYear}</p>
               )}
             </div>
           </div>

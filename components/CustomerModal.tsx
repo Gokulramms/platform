@@ -86,7 +86,7 @@ export function CustomerModal({
 
   const typeColor = connectionType === "INTERNET" ? "brand" : "purple";
   const typeBadge = connectionType === "INTERNET"
-    ? "bg-brand-600/20 text-brand-300 border-brand-600/30"
+    ? "bg-brand-600/20 text-brand-700 border-brand-600/30"
     : "bg-purple-600/20 text-purple-300 border-purple-600/30";
 
   return (
@@ -96,12 +96,12 @@ export function CustomerModal({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.96, y: 16 }}
         transition={{ duration: 0.2 }}
-        className="w-full max-w-md bg-dark-900 border border-dark-700 rounded-2xl shadow-2xl overflow-hidden"
+        className="w-full max-w-md bg-white border border-slate-300 rounded-2xl shadow-2xl overflow-hidden"
       >
         {/* Header */}
-        <div className="px-6 py-5 border-b border-dark-800 flex items-start justify-between">
+        <div className="px-6 py-5 border-b border-slate-200 flex items-start justify-between">
           <div>
-            <h2 className="text-lg font-bold text-white">
+            <h2 className="text-lg font-bold text-slate-900">
               {isEditing ? "Edit Customer" : `Add to Box ${defaultBoxNumber}`}
             </h2>
             <span className={`inline-flex items-center gap-1.5 mt-1.5 px-2.5 py-1 text-xs font-semibold rounded-full border ${typeBadge}`}>
@@ -110,9 +110,9 @@ export function CustomerModal({
           </div>
           <button
             onClick={onClose}
-            className="mt-0.5 w-8 h-8 rounded-lg bg-dark-800 hover:bg-dark-700 flex items-center justify-center transition-colors"
+            className="mt-0.5 w-8 h-8 rounded-lg bg-white hover:bg-slate-100 flex items-center justify-center transition-colors"
           >
-            <X className="w-4 h-4 text-dark-400" />
+            <X className="w-4 h-4 text-slate-600" />
           </button>
         </div>
 
@@ -121,11 +121,11 @@ export function CustomerModal({
 
           {/* Full Name */}
           <div>
-            <label className="block text-xs font-semibold text-dark-400 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">
               Full Name *
             </label>
             <div className="relative">
-              <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+              <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
               <input
                 id="customer-name"
                 name="name"
@@ -133,18 +133,18 @@ export function CustomerModal({
                 onChange={handleChange}
                 required
                 placeholder="e.g. Rajesh Kumar"
-                className="w-full bg-dark-800 border border-dark-700 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 rounded-xl px-4 py-3 pl-10 text-white text-sm placeholder-dark-500 outline-none transition-all"
+                className="w-full bg-white border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 rounded-xl px-4 py-3 pl-10 text-slate-900 text-sm placeholder-slate-400 outline-none transition-all"
               />
             </div>
           </div>
 
           {/* Phone */}
           <div>
-            <label className="block text-xs font-semibold text-dark-400 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">
               Phone Number *
             </label>
             <div className="relative">
-              <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+              <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
               <input
                 id="customer-phone"
                 name="phone"
@@ -152,7 +152,7 @@ export function CustomerModal({
                 onChange={handleChange}
                 required
                 placeholder="e.g. 9876543210"
-                className="w-full bg-dark-800 border border-dark-700 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 rounded-xl px-4 py-3 pl-10 text-white text-sm placeholder-dark-500 outline-none transition-all"
+                className="w-full bg-white border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 rounded-xl px-4 py-3 pl-10 text-slate-900 text-sm placeholder-slate-400 outline-none transition-all"
               />
             </div>
           </div>
@@ -160,11 +160,11 @@ export function CustomerModal({
           {/* Box Number (read-only after set) */}
           <div className="flex gap-3">
             <div className="flex-1">
-              <label className="block text-xs font-semibold text-dark-400 uppercase tracking-wider mb-2">
+              <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">
                 Box Number *
               </label>
               <div className="relative">
-                <Hash className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+                <Hash className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                 <input
                   id="customer-box"
                   name="boxNumber"
@@ -174,19 +174,19 @@ export function CustomerModal({
                   onChange={handleChange}
                   required
                   disabled={isEditing}
-                  className="w-full bg-dark-800 border border-dark-700 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 rounded-xl px-4 py-3 pl-10 text-white text-sm placeholder-dark-500 outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-white border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 rounded-xl px-4 py-3 pl-10 text-slate-900 text-sm placeholder-slate-400 outline-none transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
-              {isEditing && <p className="text-xs text-dark-500 mt-1">Box number cannot be changed.</p>}
+              {isEditing && <p className="text-xs text-slate-500 mt-1">Box number cannot be changed.</p>}
             </div>
 
             {/* Hardware Box ID */}
             <div className="flex-1">
-              <label className="block text-xs font-semibold text-dark-400 uppercase tracking-wider mb-2">
+              <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">
                 Hardware Box ID *
               </label>
               <div className="relative">
-                <Hash className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-dark-500" />
+                <Hash className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                 <input
                   id="customer-hardware-id"
                   name="hardwareId"
@@ -197,20 +197,20 @@ export function CustomerModal({
                   minLength={10}
                   maxLength={20}
                   placeholder="e.g. STB-12345"
-                  className="w-full bg-dark-800 border border-dark-700 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 rounded-xl px-4 py-3 pl-10 text-white text-sm placeholder-dark-500 outline-none transition-all"
+                  className="w-full bg-white border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 rounded-xl px-4 py-3 pl-10 text-slate-900 text-sm placeholder-slate-400 outline-none transition-all"
                 />
               </div>
-              <p className="text-[10px] text-dark-500 mt-1">10 to 20 characters required</p>
+              <p className="text-[10px] text-slate-500 mt-1">10 to 20 characters required</p>
             </div>
           </div>
 
           {/* Address */}
           <div>
-            <label className="block text-xs font-semibold text-dark-400 uppercase tracking-wider mb-2">
+            <label className="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">
               Address *
             </label>
             <div className="relative">
-              <MapPin className="absolute left-3.5 top-3.5 w-4 h-4 text-dark-500" />
+              <MapPin className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500" />
               <textarea
                 id="customer-address"
                 name="address"
@@ -219,7 +219,7 @@ export function CustomerModal({
                 required
                 rows={2}
                 placeholder="Full address"
-                className="w-full bg-dark-800 border border-dark-700 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 rounded-xl px-4 py-3 pl-10 text-white text-sm placeholder-dark-500 outline-none transition-all resize-none"
+                className="w-full bg-white border border-slate-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 rounded-xl px-4 py-3 pl-10 text-slate-900 text-sm placeholder-slate-400 outline-none transition-all resize-none"
               />
             </div>
           </div>
@@ -231,7 +231,7 @@ export function CustomerModal({
                 type="button"
                 id="delete-btn"
                 onClick={() => setConfirmDelete(true)}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-red-900/50 text-red-400 hover:bg-red-900/20 hover:border-red-700 text-sm font-medium transition-all"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-red-200 text-red-600 hover:bg-red-900/20 hover:border-red-700 text-sm font-medium transition-all"
               >
                 <Trash2 className="w-4 h-4" />
               </button>
@@ -242,7 +242,7 @@ export function CustomerModal({
                 id="confirm-delete-btn"
                 onClick={() => deleteMutation.mutate()}
                 disabled={deleteMutation.isPending}
-                className="flex-1 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white text-sm font-bold transition-all"
+                className="flex-1 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-slate-900 text-sm font-bold transition-all"
               >
                 {deleteMutation.isPending ? "Deleting..." : "Confirm Delete"}
               </button>
@@ -252,7 +252,7 @@ export function CustomerModal({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="flex-1 py-2.5 rounded-xl bg-dark-800 hover:bg-dark-700 border border-dark-700 text-dark-200 text-sm font-medium transition-all"
+                  className="flex-1 py-2.5 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-slate-800 text-sm font-medium transition-all"
                 >
                   Cancel
                 </button>
@@ -260,7 +260,7 @@ export function CustomerModal({
                   type="submit"
                   id="save-customer-btn"
                   disabled={saveMutation.isPending}
-                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-sm font-bold transition-all disabled:opacity-60"
+                  className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-slate-900 text-sm font-bold transition-all disabled:opacity-60"
                 >
                   <Save className="w-4 h-4" />
                   {saveMutation.isPending ? "Saving..." : isEditing ? "Save Changes" : "Add Customer"}
